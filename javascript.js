@@ -1,25 +1,53 @@
-console.log("Hello World");
+//function to play one round of Rock/Paper/Scissors
+function oneRound() {
+    const options = ["rock", "paper", "scissors"]; //defining array and options for computer to choose from
+    let getComputerChoice = options[Math.floor(Math.random() * options.length)]; //variable for random computer choice
+    console.log(getComputerChoice);
 
-const options = ["rock", "paper", "scissors"]; //defining array and options for computer to choose from
-let getComputerChoice = options[Math.floor(Math.random() * options.length)]; //variable for random computer choice
-console.log(getComputerChoice);
+    let playerChoice1 = prompt("Please choose Rock/Paper/Scissors", ""); //inputting player choice
+    let playerChoice = playerChoice1.toLowerCase(); //converting whatever the player inputs to be case insensitive
+    alert("The computer chose " + getComputerChoice); //alert indicating what the computer chose
 
-let playerChoice1 = prompt("Please choose Rock/Paper/Scissors", ""); //inputting player choice
-let playerChoice = playerChoice1.toLowerCase(); //converting player choice to lower case always to make results not case sensitive
-
-function oneRound(choice1, choice2) {
-    alert("The computer chose " + choice2); //alert indicating what the computer chose
-    if (choice1 === choice2) {
-        alert("It's a tie!"); //code for a tie
-    } else if ((choice1 === "rock") && (choice2 === "scissors")) {
-        alert("You win!"); //player win if statement
-    } else if ((choice1 === "paper") && (choice2 === "rock")) {
-        alert("You win!"); //player win if statement
-    } else if ((choice1 === "scissors") && (choice2 ==="paper")) {
-        alert("You win!"); //player win if statement
+    if (playerChoice === getComputerChoice) {
+        alert("It's a tie!");
+        return; //code for a tie
+    } else if ((playerChoice === "rock") && (getComputerChoice === "scissors")) {
+        alert("You win!");
+        playerWin = playerWin + 1; //modifying variable keeping track of player wins
+        return; //player win if statement
+    } else if ((playerChoice === "paper") && (getComputerChoice === "rock")) {
+        alert ("You win!");
+        playerWin = playerWin + 1; //modifying variable keeping track of player wins
+        return; //player win if statement
+    } else if ((playerChoice === "scissors") && (getComputerChoice ==="paper")) {
+        alert("You win!");
+        playerWin = playerWin + 1; //modifying variable keeping track of player wins
+        return; //player win if statement
     } else {
-        alert("Womp womp, you lose...better luck next time!"); //all other conditions, loss
+        alert("Womp womp, you lose...better luck next time!");
+        playerLoss = playerLoss + 1; //modifying variable keeping track of computer wins
+        return; //all other conditions, loss
     }
 }
 
-oneRound(playerChoice, getComputerChoice); //calling on function
+//defining variables to keep track of player and computer wins in a global scope to call upon them in other functions
+let playerWin = 0;
+let playerLoss = 0;
+
+//making function to play 5 rounds of rock/paper/scissors and determine overall winner (player or computer)
+function game() {
+    for (let i=0; i<5; i++) {
+        oneRound();
+} 
+alert("You won " + playerWin + " rounds");
+alert("The computer won " + playerLoss + " rounds");
+if (playerWin > playerLoss) {
+    alert("You're the overall winner of the 5 rounds! Congrats!!");
+} else if (playerWin == playerLoss) {
+        alert("Overall, it's a tie!");
+    } else {
+        alert("The computer destroyed you overall. Better luck next time!");
+    }
+};
+
+game();
