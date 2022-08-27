@@ -35,7 +35,7 @@ let playerWin = 0;
 let playerLoss = 0;
 
 //making function to play 5 rounds of rock/paper/scissors and determine overall winner (player or computer)
-function game() {
+/*function game() {
     for (let i=0; i<5; i++) {
         oneRound();
 } 
@@ -51,3 +51,4 @@ if (playerWin > playerLoss) {
 };
 
 game();
+*/
