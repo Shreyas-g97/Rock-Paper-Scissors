@@ -1,0 +1,47 @@
+body {
+    background-color: darkslateblue;
+    color: antiquewhite;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+hr {
+    width: 50%;
+    color: white;
+}
+
+#btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#rock, #paper, #scissors {
+    background-color: white;
+    font-size: 30px;
+    color: black;
+    padding: 30px;
+    border: none;
+    margin: 10px;
+    transition-duration: 0.4s;
+}
+
+#rock:hover, #paper:hover, #scissors:hover {
+    background-color: black;
+    color: white;
+    flex-grow: 0.1;
+}
+
+table {
+    width: 100%;
+    font-size: 40px;
+}
+
+p {
+    font-size: 20px;
+    font-style: italic;
+}
